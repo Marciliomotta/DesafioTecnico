@@ -1,0 +1,13 @@
+﻿.display-none {
+    display: none;
+}
+
+.allbtufooter {
+    min-height: calc(100vh - 120px);
+}
+
+.header-fixed th[scope=col] {
+    position: sticky;
+    top: 0;
+    background: #eee;
+}
