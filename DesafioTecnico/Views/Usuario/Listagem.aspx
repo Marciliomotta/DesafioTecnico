@@ -26,7 +26,7 @@
 
                                     <asp:GridView ID="GvUsuarios" class="display table-responsive table"
                                         runat="server" GridLines="None" FooterStyle-Font-Bold="true" 
-                                        AutoGenerateColumns="False" ShowFooter="false" DataKeyNames="ID" OnSelectedIndexChanged="GvUsuarios_SelectedIndexChanged">
+                                        AutoGenerateColumns="False" ShowFooter="false" DataKeyNames="ID" OnSelectedIndexChanged="GvUsuarios_SelectedIndexChanged" on>
                                         <Columns>
                                             <asp:BoundField DataField="NOME" HeaderText="Nome" />
                                             <asp:BoundField DataField="CPF" HeaderText="CPF" />
@@ -34,6 +34,11 @@
                                             <asp:BoundField DataField="Perfil" HeaderText="Perfil" />
                                             <asp:BoundField DataField="dataCriacao" HeaderText="Criado em:" DataFormatString="{0:dd/MM/yyyy}" />
                                             <asp:CommandField SelectText="Detalhar" ShowSelectButton="True"></asp:CommandField>
+                                            <asp:TemplateField>
+                                                <ItemTemplate>
+                                                    <asp:LinkButton ID="btnExcluir" runat="server" Text="Excluir" OnClick="btnExcluir_Click" OnClientClick="javascript: if (confirm('DESEJA APAGAR O USUARIO ??')) { LoadingButton(this.id) } else { return false }; void('')"></asp:LinkButton>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
                                         </Columns>
                                     </asp:GridView>
 

@@ -42,5 +42,28 @@ namespace DesafioTecnico.Views.Usuario
 
             Response.Redirect(string.Concat("Detalhar?uid=", Criptografia.EsconderParametros(id.ToString())));
         }
+
+        protected void btnExcluir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GridViewRow Row = ((GridViewRow)((Control)sender).Parent.Parent);
+                var id = Convert.ToInt32(GvUsuarios.DataKeys[Row.RowIndex].Values[0].ToString());
+
+                C_Usuario controller = new C_Usuario();
+
+                controller.DeletarUsuario(id);
+
+                gvUsuariosLoad();
+                ScriptManager.RegisterStartupScript(Page, GetType(), Guid.NewGuid().ToString(),
+                                  @"javascript:Swal.fire({icon: 'success',title: 'Usuario excluido com sucesso', allowEscapeKey: false, allowOutsideClick: false, showConfirmButton: false, timer: 1000});", true);
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(Page, GetType(), Guid.NewGuid().ToString(),
+                                          string.Format(@"javascript:Swal.fire({icon: 'error',title: 'ERRO NO EXCLUIIR', allowEscapeKey: false, allowOutsideClick: false,
+                                                html: '<b>Detalhes: </b> {0}'});", ex.Message), true);
+            }
+        }
     }
 }
