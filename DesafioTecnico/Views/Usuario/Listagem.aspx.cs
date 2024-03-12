@@ -15,8 +15,6 @@ namespace DesafioTecnico.Views.Usuario
         {
             if (!IsPostBack)
                 gvUsuariosLoad();
-            var controller = new C_Usuario();
-            controller.listagem();
         }
 
         private void gvUsuariosLoad()
