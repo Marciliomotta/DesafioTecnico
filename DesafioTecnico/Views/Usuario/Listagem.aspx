@@ -26,13 +26,14 @@
 
                                     <asp:GridView ID="GvUsuarios" class="display table-responsive table"
                                         runat="server" GridLines="None" FooterStyle-Font-Bold="true" 
-                                        AutoGenerateColumns="False" ShowFooter="false" DataKeyNames="ID">
+                                        AutoGenerateColumns="False" ShowFooter="false" DataKeyNames="ID" OnSelectedIndexChanged="GvUsuarios_SelectedIndexChanged">
                                         <Columns>
                                             <asp:BoundField DataField="NOME" HeaderText="Nome" />
                                             <asp:BoundField DataField="CPF" HeaderText="CPF" />
                                             <asp:BoundField DataField="EMAIL" HeaderText="Email" />
                                             <asp:BoundField DataField="Perfil" HeaderText="Perfil" />
                                             <asp:BoundField DataField="dataCriacao" HeaderText="Criado em:" DataFormatString="{0:dd/MM/yyyy}" />
+                                            <asp:CommandField SelectText="Detalhar" ShowSelectButton="True"></asp:CommandField>
                                         </Columns>
                                     </asp:GridView>
 

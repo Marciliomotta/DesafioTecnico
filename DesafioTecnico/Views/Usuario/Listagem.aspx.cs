@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Usuario.Controller;
+using Utils;
 
 namespace DesafioTecnico.Views.Usuario
 {
@@ -35,6 +36,13 @@ namespace DesafioTecnico.Views.Usuario
 
                 lblNoData.Text = "<i class='bi bi-exclamation-triangle'></i> Não há usuários cadastrados...";
             }
+        }
+
+        protected void GvUsuarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var id = Convert.ToInt32(GvUsuarios.SelectedDataKey.Value);
+
+            Response.Redirect(string.Concat("Detalhar?uid=", Criptografia.EsconderParametros(id.ToString())));
         }
     }
 }
