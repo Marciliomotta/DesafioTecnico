@@ -78,24 +78,6 @@ namespace DesafioTecnico.Views.Usuario
         protected global::System.Web.UI.WebControls.DropDownList ddlPerfil;
 
         /// <summary>
-        /// Controle btnCadastrar.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCadastrar;
-
-        /// <summary>
-        /// Controle lkbtnVoltarListagem.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lkbtnVoltarListagem;
-
-        /// <summary>
         /// Controle SqlDataSource_Perfil.
         /// </summary>
         /// <remarks>
@@ -103,6 +85,33 @@ namespace DesafioTecnico.Views.Usuario
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource_Perfil;
+
+        /// <summary>
+        /// Controle txtTelefone.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTelefone;
+
+        /// <summary>
+        /// Controle btnAdicionar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAdicionar;
+
+        /// <summary>
+        /// Controle btnLimpar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLimpar;
 
         /// <summary>
         /// Controle txtCep.
@@ -123,22 +132,22 @@ namespace DesafioTecnico.Views.Usuario
         protected global::System.Web.UI.WebControls.TextBox txtlogradouro;
 
         /// <summary>
-        /// Controle TextBox2.
+        /// Controle txtComplemento.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox txtComplemento;
 
         /// <summary>
-        /// Controle TextBox3.
+        /// Controle txtNumero.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox txtNumero;
 
         /// <summary>
         /// Controle txtCidade.
@@ -166,5 +175,14 @@ namespace DesafioTecnico.Views.Usuario
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPais;
+
+        /// <summary>
+        /// Controle btnCadastrar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCadastrar;
     }
 }

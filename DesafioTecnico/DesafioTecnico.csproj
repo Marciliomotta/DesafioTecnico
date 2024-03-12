@@ -160,6 +160,10 @@
     <Content Include="bin\roslyn\VBCSCompiler.exe" />
     <Content Include="bin\System.Web.Optimization.dll" />
     <Content Include="bin\System.Web.Optimization.xml" />
+    <Content Include="bin\Usuario.dll" />
+    <Content Include="bin\Usuario.pdb" />
+    <Content Include="bin\Utils.dll" />
+    <Content Include="bin\Utils.pdb" />
     <Content Include="bin\WebGrease.dll" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -2100,6 +2104,10 @@
     <ProjectReference Include="..\Usuario\Usuario.csproj">
       <Project>{214b692a-f578-4fbf-b850-70900e851712}</Project>
       <Name>Usuario</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utils\Utils.csproj">
+      <Project>{c418c06d-249b-4408-9421-9175922789e5}</Project>
+      <Name>Utils</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
