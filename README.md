@@ -23,4 +23,3 @@ Siga as etapas abaixo para configurar e executar o projeto:
 - Verifique se as configurações do banco de dados estão corretas no arquivo de configuração do projeto.
 - Compile o projeto para garantir que não haja erros de compilação.
 - Execute o projeto pressionando F5 ou usando a opção "Executar" na sua IDE.
-- O projeto será executado em um servidor local e poderá ser acessado por meio do navegador no endereço https://localhost:44350.
