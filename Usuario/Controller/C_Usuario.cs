@@ -4,6 +4,8 @@ using System.Data;
 using Usuario.Models;
 using Utils;
 using System.Collections.Generic;
+using System.CodeDom;
+using System.Reflection;
 
 namespace Usuario.Controller
 {
@@ -55,7 +57,7 @@ namespace Usuario.Controller
                 }
                 catch (Exception ex)
                 {
-
+                    throw ex;
                 }
                 finally
                 {
@@ -63,6 +65,87 @@ namespace Usuario.Controller
                 }
 
                 return models;
+            }
+
+        }public M_Usuario BuscarPorID(int usuarioID)
+        {
+            using (var conn = new SqlConnection(StringConexao.DataBase))
+            {
+                var models = new List<M_Usuario>();
+                try
+                {
+                    if (conn.State == System.Data.ConnectionState.Closed)
+                        conn.Open();
+
+                    using (var cmd = new SqlCommand())
+                    {
+                        cmd.Connection = conn;
+                        cmd.CommandText = @"SELECT 
+                                                Usuario.id
+                                                ,nome
+                                                ,cpf
+                                                ,email
+	                                            ,senha
+                                                ,dataNascimento
+	                                            ,Perfil.descricao perfil
+                                                ,Endereco.id
+	                                            ,Endereco.CEP
+                                                ,Endereco.Logradouro
+                                                ,Endereco.Complemento
+	                                            ,Endereco.Numero
+	                                            ,Endereco.Estado
+	                                            ,Endereco.Pais
+                                            FROM [Cadastro_Usuario].[dbo].[Usuario]
+                                            INNER JOIN Perfil
+                                            ON Usuario.perfil = Perfil.id
+                                            inner join Endereco
+                                            on Endereco.usuarioID = Usuario.id
+                                            where Usuario.id = @usuarioID"
+                        ;
+
+                        cmd.Parameters.Add("@usuarioID", System.Data.SqlDbType.Int).Value = usuarioID;
+
+                        var dr = cmd.ExecuteReader();
+
+                        
+                        if (dr.Read())
+                        {
+                            var model = new M_Usuario();
+                            model.id = Convert.ToInt32(dr["id"]);
+                            model.nome = dr["nome"].ToString();
+                            model.cpf = dr["cpf"].ToString();
+                            model.email = dr["email"].ToString();
+                            model.dataNascimento = Convert.ToDateTime(dr["dataNascimento"]);
+
+                            model.perfil.ID = Convert.ToInt32(dr["idPerfil"]);
+                            model.perfil.Tipo = dr["perfil"].ToString();
+
+                            model.endereco.id = Convert.ToInt32(dr["id"]);
+                            model.endereco.cep = dr["cep"].ToString();
+                            model.endereco.logradouro = dr["Logradouro"].ToString();
+                            model.endereco.complemento = dr["Complemento"].ToString();
+                            model.endereco.numero = dr["Numero"].ToString();
+                            model.endereco.estado = dr["Estado"].ToString();
+                            model.endereco.pais = dr["Pais"].ToString();
+
+                            return model;
+                        }
+
+
+                        return null;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    if (conn != null)
+                        conn.Dispose();
+                }
+
+                
             }
 
         }
@@ -136,14 +219,14 @@ namespace Usuario.Controller
                                               ,ESTADO
                                               ,PAIS)
                                             VALUES(
-                                               USUARIOID
-                                              ,CEP
-                                              ,LOGRADOURO
-                                              ,COMPLEMENTO
-                                              ,NUMERO
-                                              ,CIDADE
-                                              ,ESTADO
-                                              ,PAIS)";
+                                               @USUARIOID
+                                              ,@CEP
+                                              ,@LOGRADOURO
+                                              ,@COMPLEMENTO
+                                              ,@NUMERO
+                                              ,@CIDADE
+                                              ,@ESTADO
+                                              ,@PAIS)";
 
                         cmd.Parameters.Add("@CEP", System.Data.SqlDbType.NVarChar).Value = model.endereco.cep;
                         cmd.Parameters.Add("@LOGRADOURO", System.Data.SqlDbType.NVarChar).Value = model.endereco.logradouro;
@@ -161,6 +244,7 @@ namespace Usuario.Controller
                 catch (Exception ex)
                 {
                     trans.Rollback();
+                    throw ex;
                 }
                 finally
                 {
@@ -195,6 +279,7 @@ namespace Usuario.Controller
                 }
                 catch (Exception ex)
                 {
+                    throw ex;
                 }
                 finally
                 {
@@ -241,6 +326,7 @@ namespace Usuario.Controller
                 }
                 catch (Exception ex)
                 {
+                    throw ex;
                 }
                 finally
                 {
@@ -282,6 +368,7 @@ namespace Usuario.Controller
                 }
                 catch (Exception ex)
                 {
+                    throw ex;
                 }
                 finally
                 {
@@ -318,13 +405,135 @@ namespace Usuario.Controller
                 }
                 catch (Exception ex)
                 {
+                    throw ex;
                 }
                 finally
                 {
                     conn.Close();
                 }
             }
+        }
+        public void DeletarContatoPorUsuario(int usuarioID)
+        {
+            using (var conn = new SqlConnection(StringConexao.DataBase))
+            {
+                if (conn.State == System.Data.ConnectionState.Closed)
+                    conn.Open();
 
+                try
+                {
+                    using (var cmd = new SqlCommand())
+                    {
+                        cmd.Connection = conn;
+                        cmd.CommandText = @"DELETE CONTATO WHERE USUARIOID = @USUARIOID"
+                        ;
+
+                        cmd.Parameters.Add("@USUARIOID", System.Data.SqlDbType.Int).Value = usuarioID;
+
+                        cmd.ExecuteNonQuery();
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+        }
+        public void DeletarUsuario(int usuarioID)
+        {
+            using (var conn = new SqlConnection(StringConexao.DataBase))
+            {
+                if (conn.State == System.Data.ConnectionState.Closed)
+                    conn.Open();
+
+                try
+                {
+                    using (var cmd = new SqlCommand())
+                    {
+                        cmd.Connection = conn;
+                        cmd.CommandText = @"DELETE USUARIO WHERE ID = @ID";
+
+                        cmd.Parameters.Add("@ID", System.Data.SqlDbType.Int).Value = usuarioID;
+
+                        cmd.ExecuteNonQuery();
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+        }
+        
+        public void DeletarEndereco(int enderecoID)
+        {
+            using (var conn = new SqlConnection(StringConexao.DataBase))
+            {
+                if (conn.State == System.Data.ConnectionState.Closed)
+                    conn.Open();
+
+                try
+                {
+                    using (var cmd = new SqlCommand())
+                    {
+                        cmd.Connection = conn;
+                        cmd.CommandText = @"DELETE ENDERECO WHERE ID = @ENDERECOID";
+
+                        cmd.Parameters.Add("@ENDERECOID", System.Data.SqlDbType.Int).Value = enderecoID;
+
+                        cmd.ExecuteNonQuery();
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+        }
+        public void DeletarEnderecoPorUsuario(int usuarioID)
+        {
+            using (var conn = new SqlConnection(StringConexao.DataBase))
+            {
+                if (conn.State == System.Data.ConnectionState.Closed)
+                    conn.Open();
+
+                try
+                {
+                    using (var cmd = new SqlCommand())
+                    {
+                        cmd.Connection = conn;
+                        cmd.CommandText = @"DELETE ENDERECO WHERE usuarioID = @usuarioID";
+
+                        cmd.Parameters.Add("@usuarioID", System.Data.SqlDbType.Int).Value = usuarioID;
+
+                        cmd.ExecuteNonQuery();
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
         }
         #endregion
     }
