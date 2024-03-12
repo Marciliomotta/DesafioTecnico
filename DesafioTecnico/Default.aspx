@@ -26,7 +26,7 @@
                     <div class="col-md-4">
                         <h3>Tecnologias utilizadas</h3>
                         <p>
-                            Para a construção do projeto foi utilizado: WebForms, ADO, SQL Server Database entre outras.
+                            Para a construção do projeto foi utilizado: WebForms, ADO.NET, SQL Server Database entre outras.
                         </p>
                     </div>
                 </div>
