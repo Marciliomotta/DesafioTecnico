@@ -10,7 +10,7 @@ namespace Utils
     {
         public static string DataBase
         {
-            get { return @"Data Source=10.10.1.60;Initial Catalog=Cadastro_Usuario;Integrated Security=True;Encrypt=False;Trusted_Connection=True;"; }
+            get { return @"Data Source=JARVIS\SQLEXPRESS;Initial Catalog=Cadastro_Usuario;Integrated Security=True;Encrypt=False;Trusted_Connection=True;"; }
         }
     }
 }
