@@ -88,12 +88,14 @@ namespace Usuario.Controller
                                                 ,email
 	                                            ,senha
                                                 ,dataNascimento
+                                                ,Perfil.id idPerfil
 	                                            ,Perfil.descricao perfil
                                                 ,Endereco.id
 	                                            ,Endereco.CEP
                                                 ,Endereco.Logradouro
                                                 ,Endereco.Complemento
 	                                            ,Endereco.Numero
+	                                            ,Endereco.Cidade
 	                                            ,Endereco.Estado
 	                                            ,Endereco.Pais
                                             FROM [Cadastro_Usuario].[dbo].[Usuario]
@@ -114,6 +116,7 @@ namespace Usuario.Controller
                             var model = new M_Usuario();
                             model.id = Convert.ToInt32(dr["id"]);
                             model.nome = dr["nome"].ToString();
+                            model.senha = dr["senha"].ToString();
                             model.cpf = dr["cpf"].ToString();
                             model.email = dr["email"].ToString();
                             model.dataNascimento = Convert.ToDateTime(dr["dataNascimento"]);
@@ -126,6 +129,7 @@ namespace Usuario.Controller
                             model.endereco.logradouro = dr["Logradouro"].ToString();
                             model.endereco.complemento = dr["Complemento"].ToString();
                             model.endereco.numero = dr["Numero"].ToString();
+                            model.endereco.cidade = dr["Cidade"].ToString();
                             model.endereco.estado = dr["Estado"].ToString();
                             model.endereco.pais = dr["Pais"].ToString();
 
@@ -442,7 +446,7 @@ namespace Usuario.Controller
                         cmd.Parameters.Add("@SENHA", System.Data.SqlDbType.NVarChar).Value = model.senha;
                         cmd.Parameters.Add("@CPF", System.Data.SqlDbType.NVarChar).Value = model.cpf;
                         cmd.Parameters.Add("@DATANASCIMENTO", System.Data.SqlDbType.NVarChar).Value = model.dataNascimento;
-                        cmd.Parameters.Add("@PERFIL", System.Data.SqlDbType.NVarChar).Value = model.perfil;
+                        cmd.Parameters.Add("@PERFIL", System.Data.SqlDbType.NVarChar).Value = model.perfil.ID;
 
                         cmd.Parameters.Add("@ID", System.Data.SqlDbType.Int).Value = model.id;
 
