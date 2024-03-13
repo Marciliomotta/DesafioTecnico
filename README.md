@@ -10,7 +10,7 @@ Certifique-se de ter as seguintes ferramentas e componentes instalados em seu si
 
 ## Configuração do Banco de Dados
 - Instale e configure o SQL Server em seu sistema, se ainda não estiver instalado.
-- Crie um novo banco de dados vazio com o nome que deseje para o projeto.
+- Crie um novo banco de dados vazio com o nome "Cadastro_Usuario" para o projeto.
 - Execute o script SQL fornecido na raiz do projeto (scripts.txt) no banco de dados criado para criar as tabelas necessárias e realizar outras configurações específicas do banco de dados.
 
 Obs: Certifique-se de atualizar as informações de conexão do banco de dados no arquivo de configuração do projeto, conforme necessário.
