@@ -61,7 +61,7 @@ namespace DesafioTecnico.Views.Usuario
                 txtEmail.Text = model.email;
                 txtSenha.Text = model.senha;
                 txtcpf.Text = model.cpf;
-                txtDataNascimento.Text = model.dataNascimento.Date.ToString();
+                txtDataNascimento.Text = model.dataNascimento.Date.ToString("yyyy-MM-dd");
                 ddlPerfil.SelectedValue = model.perfil.ID.ToString();
 
 
