@@ -152,7 +152,7 @@ namespace DesafioTecnico.Views.Usuario
             }           
             if (Telefones.Count == 0)
             {
-                erro += "<li>Necessário informar, ao menos, um financiador!</li>";
+                erro += "<li>Necessário informar, ao menos, um telefone!</li>";
             }
             if (txtCep.Text == "")
             {
