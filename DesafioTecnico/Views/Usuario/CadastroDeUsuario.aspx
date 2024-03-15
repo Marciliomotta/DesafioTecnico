@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CadastroDeUsuario.aspx.cs" Inherits="DesafioTecnico.Views.Usuario.CadastroDeUsuario" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphCss" runat="server">
-    <link href="<%= ResolveClientUrl("~/Content/vendors/select2/select2.css") %>" rel="stylesheet" />
     <script src="<%= ResolveUrl("~/Content/vendors/sweetalert2/sweetalert2.all.min.js")%>"></script>
     <script src="<%= ResolveUrl("~/Content/vendors/jquery/jquery.min.js")%>"></script>
 </asp:Content>
@@ -44,7 +43,7 @@
                                                 <div class="form-group has-icon-left">
                                                     <label for="email-id-icon">Email </label>
                                                     <div class="position-relative">
-                                                        <asp:TextBox ID="txtEmail" runat="server"  class="form-control"></asp:TextBox>
+                                                        <asp:TextBox ID="txtEmail" runat="server" class="form-control"></asp:TextBox>
                                                         <div class="form-control-icon">
                                                             <i class="bi bi-envelope"></i>
                                                         </div>
@@ -53,44 +52,35 @@
                                             </div>
 
                                             <div class="col-12">
-                                                <div class="form-group has-icon-left">
-                                                    <label for="email-id-icon">Senha </label>
+                                                <div class="form-group">
+                                                    <label>Senha </label>
                                                     <div class="position-relative">
                                                         <asp:TextBox ID="txtSenha" runat="server" TextMode="Password" class="form-control"></asp:TextBox>
-                                                        <div class="form-control-icon">
-                                                            <i class="bi bi-senha"></i>
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div class="col-12">
-                                                <div class="form-group has-icon-left">
-                                                    <label for="email-id-icon">cpf </label>
+                                                <div class="form-group">
+                                                    <label>Cpf </label>
                                                     <div class="position-relative">
                                                         <asp:TextBox ID="txtcpf" runat="server" class="form-control"></asp:TextBox>
-                                                        <div class="form-control-icon">
-                                                            <i class="bi bi-senha"></i>
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div class="col-12">
-                                                <div class="form-group has-icon-left">
-                                                    <label for="email-id-icon">Data Nascimento </label>
+                                                <div class="form-group">
+                                                    <label>Data Nascimento </label>
                                                     <div class="position-relative">
-                                                        <asp:TextBox ID="txtDataNascimento" runat="server" TextMode="Date" class="form-control "></asp:TextBox>
-                                                        <div class="form-control-icon">
-                                                            <i class="bi bi-senha"></i>
-                                                        </div>
+                                                        <asp:TextBox ID="txtDataNascimento" runat="server" TextMode="Date" class="form-control"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div class="col-12">
-                                                <div class="form-group has-icon-left">
-                                                    <label for="email-id-icon">Perfil </label>
+                                                <div class="form-group">
+                                                    <label>Perfil </label>
                                                     <div class="form-group">
                                                         <asp:DropDownList ID="ddlPerfil" runat="server" class="form-select select2"></asp:DropDownList>
                                                     </div>
@@ -120,11 +110,10 @@
                                             <div class="form-body">
                                                 <div class="row">
                                                     <div class="col-12">
-                                                        <label for="email-id-icon">Telefone </label>
-                                                        <div class="position-relative">
-                                                            <asp:TextBox ID="txtTelefone" runat="server" class="form-control"></asp:TextBox>
-                                                            <div class="form-control-icon">
-                                                                <i class="bi bi-senha"></i>
+                                                        <div class="form-group ">
+                                                            <label>Telefone </label>
+                                                            <div class="position-relative">
+                                                                <asp:TextBox ID="txtTelefone" runat="server" class="form-control"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -178,8 +167,8 @@
                                         <div class="row">
 
                                             <div class="col-12">
-                                                <div class="form-group has-icon-left">
-                                                    <label for="email-id-icon">CEP </label>
+                                                <div class="form-group ">
+                                                    <label>CEP </label>
                                                     <div class="position-relative">
                                                         <asp:TextBox ID="txtCep" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
@@ -187,8 +176,8 @@
                                             </div>
 
                                             <div class="col-12">
-                                                <div class="form-group has-icon-left">
-                                                    <label for="email-id-icon">Logradouro </label>
+                                                <div class="form-group ">
+                                                    <label>Logradouro </label>
                                                     <div class="position-relative">
                                                         <asp:TextBox ID="txtlogradouro" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
@@ -196,8 +185,8 @@
                                             </div>
 
                                             <div class="col-12">
-                                                <div class="form-group has-icon-left">
-                                                    <label for="email-id-icon">Complemento </label>
+                                                <div class="form-group ">
+                                                    <label>Complemento </label>
                                                     <div class="position-relative">
                                                         <asp:TextBox ID="txtComplemento" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
@@ -205,8 +194,8 @@
                                             </div>
 
                                             <div class="col-12">
-                                                <div class="form-group has-icon-left">
-                                                    <label for="email-id-icon">Número</label>
+                                                <div class="form-group ">
+                                                    <label>Número</label>
                                                     <div class="position-relative">
                                                         <asp:TextBox ID="txtNumero" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
@@ -214,31 +203,30 @@
                                             </div>
 
                                             <div class="col-12">
-                                                <label for="email-id-icon">Cidade </label>
-                                                <div class="position-relative">
-                                                    <asp:TextBox ID="txtCidade" runat="server" class="form-control"></asp:TextBox>
-                                                    <div class="form-control-icon">
-                                                        <i class="bi bi-senha"></i>
+                                                <div class="form-group ">
+                                                    <label>Cidade</label>
+                                                    <div class="position-relative">
+                                                        <asp:TextBox ID="txtCidade" runat="server" class="form-control"></asp:TextBox>
+
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div class="col-12">
-                                                <label for="email-id-icon">Estado </label>
-                                                <div class="position-relative">
-                                                    <asp:TextBox ID="txtEstado" runat="server" class="form-control"></asp:TextBox>
-                                                    <div class="form-control-icon">
-                                                        <i class="bi bi-senha"></i>
+                                                <div class="form-group ">
+                                                    <label>Estado </label>
+                                                    <div class="position-relative">
+                                                        <asp:TextBox ID="txtEstado" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
+
                                                 </div>
                                             </div>
 
                                             <div class="col-12">
-                                                <label for="email-id-icon">País </label>
-                                                <div class="position-relative">
-                                                    <asp:TextBox ID="txtPais" runat="server" class="form-control"></asp:TextBox>
-                                                    <div class="form-control-icon">
-                                                        <i class="bi bi-senha"></i>
+                                                <div class="form-group ">
+                                                    <label>País </label>
+                                                    <div class="position-relative">
+                                                        <asp:TextBox ID="txtPais" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
